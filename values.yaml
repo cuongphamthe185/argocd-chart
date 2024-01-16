@@ -1926,9 +1926,10 @@ server:
 
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
+    enabled: true
     # -- Additional ingress annotations
-    annotations: {}
+    annotations:
+      cert-manager.io/issuer: letsencrypt-staging
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
@@ -1938,8 +1939,8 @@ server:
     ## Argo Ingress.
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
-    hosts: []
-      # - argocd.example.com
+    hosts:
+      - argocd.cuongpt.click
 
     # -- List of ingress paths
     paths:
@@ -1957,13 +1958,13 @@ server:
       #         name: use-annotation
 
     # -- Ingress TLS configuration
-    tls: []
-      # - secretName: your-certificate-name
-      #   hosts:
-      #     - argocd.example.com
+    tls:
+      - secretName: quickstart-argocd-tls
+        hosts:
+          - argocd.cuongpt.click
 
     # -- Uses `server.service.servicePortHttps` instead `server.service.servicePortHttp`
-    https: false
+    https: true
 
   # dedicated ingress for gRPC as documented at
   # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
