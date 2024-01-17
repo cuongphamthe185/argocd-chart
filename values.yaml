@@ -1929,12 +1929,13 @@ server:
     enabled: true
     # -- Additional ingress annotations
     annotations:
-      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       #cert-manager.io/issuer: letsencrypt-prod
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
-    ingressClassName: "nginx"
+    ingressClassName: nginx
 
     # -- List of ingress hosts
     ## Argo Ingress.
