@@ -1929,8 +1929,8 @@ server:
     enabled: true
     # -- Additional ingress annotations
     annotations:
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      #nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
       #cert-manager.io/issuer: letsencrypt-prod
     # -- Additional ingress labels
     labels: {}
