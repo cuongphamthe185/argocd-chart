@@ -1929,11 +1929,11 @@ server:
     enabled: true
     # -- Additional ingress annotations
     annotations:
-      cert-manager.io/issuer: letsencrypt-prod
+      #cert-manager.io/issuer: letsencrypt-prod
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
-    ingressClassName: ""
+    ingressClassName: "nginx"
 
     # -- List of ingress hosts
     ## Argo Ingress.
@@ -1958,13 +1958,13 @@ server:
       #         name: use-annotation
 
     # -- Ingress TLS configuration
-    tls:
-      - secretName: quickstart-argocd-tls
-        hosts:
-          - argocd.cuongpt.click
+    #tls:
+    #  - secretName: quickstart-argocd-tls
+    #    hosts:
+    #      - argocd.cuongpt.click
 
     # -- Uses `server.service.servicePortHttps` instead `server.service.servicePortHttp`
-    https: true
+    https: false
 
   # dedicated ingress for gRPC as documented at
   # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
